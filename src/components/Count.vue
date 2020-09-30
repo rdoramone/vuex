@@ -7,6 +7,9 @@
     <button @click="incrementAfter({ amount: 10 })">async</button>
     <button @click="decrement(2)">-</button>
   </div>
+  <div class="action-using-promise">
+    <button @click="incrementAsyncAction">Action A using Promise</button>
+  </div>
 </div>
 </template>
   
@@ -25,7 +28,12 @@ export default {
   },
   methods: {
     ...mapActions(['increment', 'incrementAsync', 'decrement']),
-    ...mapActions({ incrementAfter: 'incrementAsync' })
+    ...mapActions({ incrementAfter: 'incrementAsync' }),
+    incrementAsyncAction() {
+      this.$store.dispatch('actionA', 5).then(() => {
+        this.$store.dispatch('incrementAsync', { amount: -1 })
+      })
+    }
   }
 }
 </script>

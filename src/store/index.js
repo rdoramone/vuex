@@ -58,7 +58,18 @@ export default new Vuex.Store({
     },
     decrement: ({ commit }, payload) => {
       commit('decrement', payload)
-    }
+    },
+    actionA: ({ commit }, amount) => {
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit({
+            type: 'increment',
+            amount: amount
+          });
+          resolve();
+        }, 1000)
+      })
+    },
   },
   modules: {
   }
