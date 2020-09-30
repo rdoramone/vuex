@@ -5,7 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    todos: [
+      { id: 1, description: 'Descrição para o primeiro paragráfo.', done: true },
+      { id: 2, description: 'Descrição para o segundo paragráfo.', done: false },
+    ]
+  },
+  getters: {
+    doneTodos: (state) => {
+      return state.todos.filter(todo => todo.done === true)
+    }
   },
   mutations: {
     increment: state => state.count++,
