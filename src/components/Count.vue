@@ -9,21 +9,23 @@
 </template>
   
 <script>
-import store from '../store/index.js'
+/*
+  Como já injetamos a store na instância do Vue para que a Store possa ser acessada por todos os filhos, não precisamos importar a Store aqui, basta fazer a chamada da store da seguinte forma 'this.$store'.
+*/
 
 export default {
   name: 'Count',
   computed: {
     count() {
-      return store.state.count
+      return this.$store.state.count
     } 
   },
   methods: {
     increment() {
-      store.commit('increment')
+      this.$store.commit('increment')
     },
     decrement() {
-      store.commit('decrement')
+      this.$store.commit('decrement')
     }
   }
 }
