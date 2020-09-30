@@ -18,6 +18,9 @@ export default new Vuex.Store({
     },
     totalDoneTodos: (state, getters) => {
       return getters.doneTodos.length
+    },
+    getTodoById: (state) => (id) => {
+      return state.todos.filter(todo => todo.id === id)
     }
   },
   mutations: {
