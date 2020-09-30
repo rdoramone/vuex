@@ -34,6 +34,23 @@ export default new Vuex.Store({
     decrement: (state, payload) => state.count -= payload
   },
   actions: {
+    /*
+      Podemos criar uma action usando a desestruturação de argumentos do ES2015.
+
+      Por exemplo: 
+        increment: ({ commit }) => {
+          commit({
+            type: 'increment',
+            amount: 5
+          })
+        }
+    */
+    increment: (context) => {
+      context.commit({
+        type: 'increment',
+        amount: 5
+      })
+    }
   },
   modules: {
   }
