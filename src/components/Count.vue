@@ -24,6 +24,8 @@ export default {
   methods: {
     increment() {
       this.$store.dispatch('increment')
+
+      this.$store.dispatch('incrementAsync')
     },
     decrement() {
       this.$store.commit('decrement', 5)

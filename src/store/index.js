@@ -50,6 +50,14 @@ export default new Vuex.Store({
         type: 'increment',
         amount: 5
       })
+    },
+    incrementAsync: ({ commit }) => {
+      setTimeout(() => {
+        commit( {
+          type: 'increment',
+          amount: 2
+        })
+      }, 3000)
     }
   },
   modules: {
