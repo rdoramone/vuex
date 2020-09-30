@@ -4,7 +4,7 @@
   <p>{{ count }}</p>
   <div>
     <button @click="increment(2)">+</button>
-    <button @click="incrementAsync({ amount: 10 })">async</button>
+    <button @click="incrementAfter({ amount: 10 })">async</button>
     <button @click="decrement(2)">-</button>
   </div>
 </div>
@@ -24,7 +24,8 @@ export default {
     } 
   },
   methods: {
-    ...mapActions(['increment', 'incrementAsync', 'decrement'])
+    ...mapActions(['increment', 'incrementAsync', 'decrement']),
+    ...mapActions({ incrementAfter: 'incrementAsync' })
   }
 }
 </script>
