@@ -58,6 +58,9 @@ export default new Vuex.Store({
           amount: 2
         })
       }, 3000)
+    },
+    decrement: ({ commit }, amount) => {
+      commit('decrement', amount)
     }
   },
   modules: {

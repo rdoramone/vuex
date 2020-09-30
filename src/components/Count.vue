@@ -4,7 +4,8 @@
   <p>{{ count }}</p>
   <div>
     <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+    <button @click="incrementAsync">async</button>
+    <button @click="decrement(2)">-</button>
   </div>
 </div>
 </template>
@@ -13,6 +14,7 @@
 /*
   Como já injetamos a store na instância do Vue para que a Store possa ser acessada por todos os filhos, não precisamos importar a Store aqui, basta fazer a chamada da store da seguinte forma 'this.$store'.
 */
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Count',
@@ -22,14 +24,7 @@ export default {
     } 
   },
   methods: {
-    increment() {
-      this.$store.dispatch('increment')
-
-      this.$store.dispatch('incrementAsync')
-    },
-    decrement() {
-      this.$store.commit('decrement', 5)
-    }
+    ...mapActions(['increment', 'incrementAsync', 'decrement'])
   }
 }
 </script>
