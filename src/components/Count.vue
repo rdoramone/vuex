@@ -3,8 +3,8 @@
   <h1>Estado</h1>
   <p>{{ count }}</p>
   <div>
-    <button @click="increment">+</button>
-    <button @click="incrementAsync">async</button>
+    <button @click="increment(2)">+</button>
+    <button @click="incrementAsync({ amount: 10 })">async</button>
     <button @click="decrement(2)">-</button>
   </div>
 </div>

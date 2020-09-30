@@ -45,22 +45,19 @@ export default new Vuex.Store({
           })
         }
     */
-    increment: (context) => {
+    increment: (context, valueAmount) => {
       context.commit({
         type: 'increment',
-        amount: 5
+        amount: valueAmount
       })
     },
-    incrementAsync: ({ commit }) => {
+    incrementAsync: ({ commit }, objAmount) => {
       setTimeout(() => {
-        commit( {
-          type: 'increment',
-          amount: 2
-        })
-      }, 3000)
+        commit('increment', objAmount)
+      }, 1000)
     },
-    decrement: ({ commit }, amount) => {
-      commit('decrement', amount)
+    decrement: ({ commit }, payload) => {
+      commit('decrement', payload)
     }
   },
   modules: {
