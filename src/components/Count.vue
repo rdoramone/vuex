@@ -3,7 +3,7 @@
   <h1>Estado</h1>
   <p>{{ count }}</p>
   <div>
-    <button @click="increment()">+</button>
+    <button @click="increment">+</button>
     <button @click="decrement">-</button>
   </div>
 </div>
@@ -23,10 +23,13 @@ export default {
   },
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.commit(
+        'increment',
+        { amount: 10 }
+      )
     },
     decrement() {
-      this.$store.commit('decrement')
+      this.$store.commit('decrement', 5)
     }
   }
 }

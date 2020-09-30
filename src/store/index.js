@@ -24,8 +24,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    increment: state => state.count++,
-    decrement: state => state.count--
+    /*
+      Na maioria das vezes é utilizado um objeto para o payload para que
+      fiquei mais descritivo qual o tipo de alteração que está sendo feita.
+
+      Abaixo temos um exemplo com o payload usando um objeto e sem o objeto.
+    */
+    increment: (state, payload) => state.count += payload.amount,
+    decrement: (state, payload) => state.count -= payload
   },
   actions: {
   },
